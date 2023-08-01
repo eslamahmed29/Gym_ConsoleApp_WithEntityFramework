@@ -1,4 +1,4 @@
-#Gym Console App using Entity Framework
+#*Gym Console App using Entity Framework*
 
 This is a simple console application for managing gyms, trainers, and trainees using Entity Framework (EF). The application allows users to create, read, update, and delete gyms, trainers, and trainees. It also supports a many-to-many relationship between trainers and gyms through the Trainers_Gym table.
 
