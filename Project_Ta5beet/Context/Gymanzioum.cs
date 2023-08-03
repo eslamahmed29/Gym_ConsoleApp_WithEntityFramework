@@ -31,6 +31,7 @@ namespace Project_Ta5beet.Context
         public virtual DbSet<Trainee> Trainees { get; set; }
         public virtual DbSet<Trainer> Trainers { get; set; }
         public virtual DbSet<Gym> Gyms { get; set; }
+        public virtual DbSet<GymTrainer> GymTrainers { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Trainee>()

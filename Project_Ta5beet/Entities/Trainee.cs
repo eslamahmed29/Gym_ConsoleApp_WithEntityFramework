@@ -13,7 +13,7 @@ namespace Project_Ta5beet.Entities
         public string Name { get; set; }
         public string Phone { get; set; }
         public int Age { get; set; }
-        public virtual Trainer Trainer { get; set; }
-        public virtual Gym Gym { get; set; }
+        public virtual Trainer? Trainer { get; set; }
+        public virtual Gym? Gym { get; set; }
     }
 }

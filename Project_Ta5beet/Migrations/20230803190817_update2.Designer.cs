@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Project_Ta5beet.Context;
 
@@ -11,9 +12,11 @@ using Project_Ta5beet.Context;
 namespace Project_Ta5beet.Migrations
 {
     [DbContext(typeof(Gymanzioum))]
-    partial class GymanzioumModelSnapshot : ModelSnapshot
+    [Migration("20230803190817_update2")]
+    partial class update2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
