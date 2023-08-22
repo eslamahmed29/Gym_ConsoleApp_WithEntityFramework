@@ -8,7 +8,12 @@ namespace Project_Ta5beet
     {
         public static void Main(string[] args)
         {
-            using(Gymanzioum con = new Gymanzioum())
+            Solve();
+
+        }
+        public static void Solve()
+        {
+            using (Gymanzioum con = new Gymanzioum())
             {
                 con.Database.Migrate();
                 //add Gyms to database
@@ -194,26 +199,26 @@ namespace Project_Ta5beet
                */
                 #endregion
 
-                Console.WriteLine("Enter What category you want ?");
+                Console.WriteLine("Enter What do you want ?");
                 Console.WriteLine("1 : Gym \n" +
                     "2 : Trainers \n" +
-                    "3 : Trainees \n"+
+                    "3 : Trainees \n" +
                     "4: View Trainers Gym and Shifts "
-                    
+
                     );
-                int n=int.Parse(Console.ReadLine());
+                int n = int.Parse(Console.ReadLine());
                 if (n == 1)
                 {
                     Console.WriteLine("What do you need ? \n");
-                    Console.WriteLine("1 : Add New Gym \n"+
+                    Console.WriteLine("1 : Add New Gym \n" +
                         "2 : View A list Of Gyms \n ");
-                    int x=int.Parse(Console.ReadLine());
-                    if(x == 1)
+                    int x = int.Parse(Console.ReadLine());
+                    if (x == 1)
                     {
-                        string gname,add,typ;
+                        string gname, add, typ;
                         Console.Write("Please Enter Gym Name : "); gname = Console.ReadLine();
-                        Console.Write("Please Enter Gym Address : "); add=Console.ReadLine();
-                        Console.Write("Please Enter Gym Type : ");typ=Console.ReadLine() ;
+                        Console.Write("Please Enter Gym Address : "); add = Console.ReadLine();
+                        Console.Write("Please Enter Gym Type : "); typ = Console.ReadLine();
                         Gym gym = new Gym()
                         {
                             Name = gname,
@@ -226,14 +231,14 @@ namespace Project_Ta5beet
                     if (x == 2)
                     {
                         var list = (from gy in con.Gyms
-                                   
-                                   select gy).ToList();
-                        
+
+                                    select gy).ToList();
+
                         foreach (var item in list)
                         {
-                            
-                            Console.Write(item.Id+" ");
-                            Console.Write(item.Name+" ");
+
+                            Console.Write(item.Id + " ");
+                            Console.Write(item.Name + " ");
                             Console.Write(item.Address + " ");
                             Console.Write(item.Type + " ");
                             Console.WriteLine();
@@ -248,11 +253,11 @@ namespace Project_Ta5beet
                     Console.WriteLine("1 : Add New Trainer \n" +
                         "2 : View A list Of Trainers \n"
                         );
-                    int y=int.Parse(Console.ReadLine());
+                    int y = int.Parse(Console.ReadLine());
                     if (y == 1)
                     {
                         string trname, trphone;
-                        Console.Write("Please Enter Trainer Name : "); trname= Console.ReadLine();
+                        Console.Write("Please Enter Trainer Name : "); trname = Console.ReadLine();
                         Console.Write("Please Enter Trainer Phone : "); trphone = Console.ReadLine();
                         Trainer tr = new Trainer()
                         {
@@ -264,10 +269,10 @@ namespace Project_Ta5beet
 
                     }
 
-                    if(y == 2)
+                    if (y == 2)
                     {
                         var lst = (from tr in con.Trainers
-                                  select tr).ToList();
+                                   select tr).ToList();
                         foreach (var item in lst)
                         {
                             Console.Write(item.Id + " ");
@@ -276,7 +281,7 @@ namespace Project_Ta5beet
                             Console.WriteLine();
                         }
                     }
-                   
+
                 }
 
 
@@ -287,22 +292,22 @@ namespace Project_Ta5beet
                     Console.Write("1 : Add New Trainee \n" +
                         "2 : View A list Of Trainees \n"
                         );
-                    int z=int.Parse(Console.ReadLine());
+                    int z = int.Parse(Console.ReadLine());
                     if (z == 1)
                     {
                         //var tename, tephone,age,trid,gymid;
                         string tename, tephone;
                         int teage;
-                        Console.Write("Enter The Trainee Name : "); tename= Console.ReadLine();
-                        Console.Write("Enter The Trainee Phone : "); tephone= Console.ReadLine();
-                        Console.Write("Enter the Trainee Age : ");teage = int.Parse(Console.ReadLine());
+                        Console.Write("Enter The Trainee Name : "); tename = Console.ReadLine();
+                        Console.Write("Enter The Trainee Phone : "); tephone = Console.ReadLine();
+                        Console.Write("Enter the Trainee Age : "); teage = int.Parse(Console.ReadLine());
 
                         Trainee te = new Trainee()
                         {
                             Name = tename,
-                            Phone=tephone,
-                            Age=teage
-                           
+                            Phone = tephone,
+                            Age = teage
+
                         };
                         con.Add(te);
                         con.SaveChanges();
@@ -311,11 +316,11 @@ namespace Project_Ta5beet
                     {
                         var lista = (from te in con.Trainees
                                      select te).ToList();
-                        foreach(var item in lista)
+                        foreach (var item in lista)
                         {
-                            Console.Write(item.Id+" ");
-                            Console.Write(item.Name+" ");
-                            Console.Write(item.Phone+ " ");
+                            Console.Write(item.Id + " ");
+                            Console.Write(item.Name + " ");
+                            Console.Write(item.Phone + " ");
                             Console.Write(item.Age + " ");
                             Console.WriteLine();
                         }
@@ -327,17 +332,25 @@ namespace Project_Ta5beet
                                    select gt).ToList();
                     foreach (var item in listaia)
                     {
-                        Console.Write("Trainer ID: "+item.TrainerID+" ,");
-                        Console.Write("Trainer Name: "+item.TrainerName+" ,");
-                        Console.Write("GymID: "+item.GymID+" ,");
-                        Console.Write("Gym Name: "+item.GymName+" ,");
-                        Console.Write("Shift: "+item.Shift+" ,");
+                        Console.Write("Trainer ID: " + item.TrainerID + " ,");
+                        Console.Write("Trainer Name: " + item.TrainerName + " ,");
+                        Console.Write("GymID: " + item.GymID + " ,");
+                        Console.Write("Gym Name: " + item.GymName + " ,");
+                        Console.Write("Shift: " + item.Shift + " ,");
                         Console.WriteLine();
                     }
                 }
-
+                Console.WriteLine("Do You Want anything again ? \n Yes Or No");
+                string op = Console.ReadLine();
+                if (op == "yes")
+                {
+                    Solve();
+                }
+                if (op == "no")
+                {
+                    Console.WriteLine("Ok Bye");
+                }
             }
-
         }
     }
 }
